@@ -6,186 +6,104 @@ export default function Layout() {
   return (
     <div className="w-full relative">
       
-      {/* Imagem de fundo */}
-      <img
-        src={header_foto}
-        alt="Imagem de cabeçalho"
-        className="w-full h-full object-cover"
-      />
+      {/* Imagem de fundo - Ajustada a altura para mobile */}
+      <div className="relative h-[500px] sm:h-auto">
+        <img
+          src={header_foto}
+          alt="Imagem de cabeçalho"
+          className="w-full h-full object-cover"
+        />
+        
+        {/* Overlay escuro para melhorar leitura no mobile */}
+        <div className="absolute inset-0 bg-black/30 sm:bg-transparent"></div>
 
-      {/* Conteúdo central (desktop apenas) */}
-      <div
-        className="
-          absolute inset-0
-          top-1/2 left-1/2
-          -translate-x-1/2 -translate-y-1/2
-          text-center w-full px-4
-          hidden sm:block
-        "
-      >
-        <h2 className="text-white text-5xl font-bold mb-4 italic">
-          Traga o equilíbrio e a vida da água doce para seu espaço!
-        </h2>
+        {/* Conteúdo central - Agora visível em todos os tamanhos */}
+        <div
+          className="
+            absolute inset-0
+            flex flex-col justify-center items-center
+            text-center w-full px-6
+          "
+        >
+          <h2 className="text-white text-3xl sm:text-5xl font-bold mb-4 italic leading-tight">
+            Traga o equilíbrio e a vida da água doce para seu espaço!
+          </h2>
 
-        <h3 className="text-white text-xl font-medium max-w-3xl mx-auto">
-          Especialistas em aquarismo de alta performance. Peixes de água doce,
-          ecossistemas equilibrados e equipamentos de última geração para o seu aquário
-        </h3>
+          <h3 className="text-white text-lg sm:text-xl font-medium max-w-3xl mx-auto">
+            Especialistas em aquarismo de alta performance. Peixes de água doce,
+            ecossistemas equilibrados e equipamentos de última geração.
+          </h3>
 
-        <div className="mt-10 flex justify-center gap-4">
-          <button
-            className="
-              cursor-pointer bg-transparent
-              hover:bg-[#5ca2b5]
-              text-white font-bold
-              py-3 px-6 rounded-full
-              transition-colors
-              border border-white
-              text-2xl w-60
-            "
-          >
-            Explorar Loja
-          </button>
+          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto">
+            <button
+              className="
+                cursor-pointer bg-transparent hover:bg-[#5ca2b5]
+                text-white font-bold py-3 px-6 rounded-full
+                transition-colors border border-white
+                text-xl sm:text-2xl w-full sm:w-60
+              "
+            >
+              Explorar Loja
+            </button>
 
-          <button
-            className="
-              cursor-pointer bg-transparent
-              hover:bg-[#5ca2b5]
-              text-white font-bold
-              py-3 px-6 rounded-full
-              transition-colors
-              border border-white
-              text-2xl w-60
-            "
-          >
-            Fale Conosco
-          </button>
+            <button
+              className="
+                cursor-pointer bg-transparent hover:bg-[#5ca2b5]
+                text-white font-bold py-3 px-6 rounded-full
+                transition-colors border border-white
+                text-xl sm:text-2xl w-full sm:w-60
+              "
+            >
+              Fale Conosco
+            </button>
+          </div>
         </div>
       </div>
 
-      {/* Seção de Cards */}
+      {/* Seção de Cards - Ajustado overflow e largura */}
       <div
         className="
-         mt-20 mb-24
-    flex flex-row
-    gap-6
-    overflow-x-auto
-    overflow-y-hidden
-    px-4
-    snap-x snap-mandatory
-    touch-pan-x
-    scrollbar-hide
-    justify-center
-    items-center
-          
+          mt-10 sm:mt-20 mb-24
+          flex flex-row
+          gap-6
+          overflow-x-auto
+          px-6
+          snap-x snap-mandatory
+          scrollbar-hide
+          lg:justify-center /* Centraliza apenas quando houver espaço */
         "
       >
+        {/* Card Component (Padrão para os 4) */}
+        {[
+          { icon: <MdOutlineWorkspacePremium />, title: "Qualidade Premium", text: "Oferecemos uma seleção premium de peixes de água doce, plantas e equipamentos de última geração." },
+          { icon: <FaBox />, title: "Entrega Segura", text: "Utilizamos embalagens adequadas para o transporte seguro, preservando integridade e bem-estar." },
+          { icon: <FaLifeRing />, title: "Garantia de Vida", text: "Garantimos a procedência e a qualidade dos peixes, assegurando vida saudável no recebimento." },
+          { icon: <FaClock />, title: "Suporte 24 Horas", text: "Suporte especializado 24 horas para orientar cuidados e tirar dúvidas em todas as etapas." }
+        ].map((card, index) => (
+          <div
+            key={index}
+            className="
+              bg-white shadow-xl rounded-lg
+              flex flex-col items-center
+              transition-transform duration-300
+              hover:scale-105
+              min-w-[85%] sm:min-w-[350px] max-w-sm
+              snap-center p-6 mb-4
+            "
+          >
+            <div className="border border-[#87CEEB] rounded-full w-16 h-16 sm:w-20 h-20 flex items-center justify-center">
+              <span className="text-3xl sm:text-4xl text-[#87CEEB]">{card.icon}</span>
+            </div>
 
-        {/* Card 1 */}
-        <div
-          className="
-            bg-white shadow-xl rounded-lg
-            flex flex-col items-center
-            cursor-pointer
-            transition-transform duration-300
-            hover:scale-105
-            max-w-sm min-w-[380px]
-            snap-center
-            
-          "
-        >
-          <div className="border border-[#87CEEB] rounded-full w-20 h-20 flex items-center justify-center mt-6">
-            <MdOutlineWorkspacePremium className="w-10 h-10 text-[#87CEEB]" />
+            <h2 className="text-xl sm:text-2xl text-[#273f59] font-bold mt-4 text-center">
+              {card.title}
+            </h2>
+
+            <p className="text-base sm:text-lg mt-2 text-center text-gray-600">
+              {card.text}
+            </p>
           </div>
-
-          <h2 className="text-2xl text-[#273f59] font-bold mt-4">
-            Qualidade Premium
-          </h2>
-
-          <p className="text-lg mt-2 text-center p-5">
-            Oferecemos uma seleção premium de peixes de água doce, plantas aquáticas e
-            equipamentos de última geração para garantir um ecossistema equilibrado e saudável.
-          </p>
-        </div>
-
-        {/* Card 2 */}
-        <div
-          className="
-            bg-white shadow-xl rounded-lg
-            flex flex-col items-center
-            cursor-pointer
-            transition-transform duration-300
-            hover:scale-105
-            max-w-sm min-w-[380px]
-            snap-center
-          "
-        >
-          <div className="border border-[#87CEEB] rounded-full w-20 h-20 flex items-center justify-center mt-6">
-            <FaBox className="w-10 h-10 text-[#87CEEB]" />
-          </div>
-
-          <h2 className="text-2xl text-[#273f59] font-bold mt-4">
-            Entrega Segura
-          </h2>
-
-          <p className="text-lg mt-2 text-center p-5">
-            Utilizamos embalagens adequadas para o transporte seguro de peixes, plantas aquáticas e
-            equipamentos, preservando sua integridade e bem-estar.
-          </p>
-        </div>
-
-        {/* Card 3 */}
-        <div
-          className="
-            bg-white shadow-xl rounded-lg
-            flex flex-col items-center
-            cursor-pointer
-            transition-transform duration-300
-            hover:scale-105
-            max-w-sm min-w-[380px]
-            snap-center
-          "
-        >
-          <div className="border border-[#87CEEB] rounded-full w-20 h-20 flex items-center justify-center mt-6">
-            <FaLifeRing className="w-10 h-10 text-[#87CEEB]" />
-          </div>
-
-          <h2 className="text-2xl text-[#273f59] font-bold mt-4">
-            Garantia de Vida
-          </h2>
-
-          <p className="text-lg mt-2 text-center p-5">
-            Garantimos a procedência e a qualidade dos peixes, assegurando vida saudável no
-            recebimento e total transparência em todo o processo.
-          </p>
-        </div>
-
-        {/* Card 4 */}
-        <div
-          className="
-            bg-white shadow-xl rounded-lg
-            flex flex-col items-center
-            cursor-pointer
-            transition-transform duration-300
-            hover:scale-105
-            max-w-sm min-w-[380px]
-            snap-center
-          "
-        >
-          <div className="border border-[#87CEEB] rounded-full w-20 h-20 flex items-center justify-center mt-6">
-            <FaClock className="w-10 h-10 text-[#87CEEB]" />
-          </div>
-
-          <h2 className="text-2xl text-[#273f59] font-bold mt-4">
-            Suporte 24 Horas
-          </h2>
-
-          <p className="text-lg mt-2 text-center p-5">
-            Suporte especializado 24 horas para orientar cuidados, tirar dúvidas e acompanhar
-            você em todas as etapas do aquarismo.
-          </p>
-        </div>
-
+        ))}
       </div>
     </div>
   );
