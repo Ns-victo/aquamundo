@@ -27,10 +27,10 @@ export default function MenuMobile({ onClose }: MenuMobileProps) {
       className={`h-auto sm:hidden transition-colors duration-300 ${
         scrolled
           ? "bg-[#EFF6FF] text-blue-900"
-          : "bg-white/10 backdrop-blur-md border border-white/20 text-white"
+          : "bg-gray-900/50 backdrop-blur-md border border-white/20 text-white"
       }`}
     >
-      <div className="flex flex-col    h-full">
+      <div className="flex flex-col h-full">
         <li className="flex flex-col px-8 py-4 gap-10 mt-5 mb-5 ">
           <a className="flex justify-between gap-5">
             <span className="text-2xl">Início</span>

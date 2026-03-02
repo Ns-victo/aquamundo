@@ -7,11 +7,11 @@ export default function Layout() {
     <div className="w-full relative">
       
       {/* Imagem de fundo - Ajustada a altura para mobile */}
-      <div className="relative h-[500px] sm:h-auto">
+      <div className="relative h-auto sm:h-full">
         <img
           src={header_foto}
           alt="Imagem de cabeçalho"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover "
         />
         
         {/* Overlay escuro para melhorar leitura no mobile */}

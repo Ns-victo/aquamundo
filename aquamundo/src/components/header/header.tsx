@@ -66,7 +66,7 @@ export default function Header() {
             size={42}
           />
           <h1
-            className={`text-3xl font-bold transition-colors ${
+            className={`text-2xl font-bold transition-colors  ${
               scrolled ? "text-blue-900" : "text-white"
             }`}
           >
@@ -111,7 +111,7 @@ export default function Header() {
         <AiOutlineMenu
           size={35}
           onClick={toggleMenu}
-          className={`cursor-pointer transition-colors ${
+          className={`block sm:hidden cursor-pointer transition-colors ${
             scrolled
               ? "text-blue-900 hover:text-[#5ca2b5]"
               : "text-white hover:text-[#5ca2b5]"

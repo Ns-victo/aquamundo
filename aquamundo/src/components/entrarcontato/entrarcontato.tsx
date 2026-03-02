@@ -73,10 +73,11 @@ export default function EntrarContato() {
           <button
             className="
               mt-6 bg-white text-blue-600 font-semibold
+              text-xl
               h-25
               cursor-pointer
               px-10 py-4 rounded-full
-              text-sm md:text-lg lg:text-xl
+              md:text-lg lg:text-xl
               hover:bg-[#EFF6FF] transition-colors
               shadow-xl
             "

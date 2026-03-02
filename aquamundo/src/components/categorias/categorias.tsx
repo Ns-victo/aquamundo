@@ -59,7 +59,7 @@ export default function Categorias() {
             - transition-all: Faz com que a mudança do gap e de qualquer outra cor seja suave (animada) em vez de instantânea.
         */}
 
-          <button className="cursor-pointer text-blue-500 text-sm lg:text-lg font-medium flex items-center gap-2 hover:gap-3 transition-all">
+          <button className="cursor-pointer  text-blue-500 text-2xl sm:text-2xl font-medium flex items-center gap-2 hover:gap-3 transition-all">
             Ver todas →
           </button>
         </div>
