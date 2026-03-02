@@ -23,7 +23,7 @@ function App() {
        - overflow-x-hidden: Trava de segurança para impedir qualquer scroll lateral indesejado 
          que possa quebrar o layout no mobile.
     */
-    <div className="min-h-screen flex flex-col bg-white overflow-x-hidden">
+    <div className="min-h-screen flex flex-col bg-white overflow-x-hidden ">
 
       {/* COMPONENTE DE CABEÇALHO:
           Fica fixo no topo e gerencia a navegação principal.

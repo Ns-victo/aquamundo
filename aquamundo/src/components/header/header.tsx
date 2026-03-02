@@ -1,8 +1,19 @@
 import { LuFish } from "react-icons/lu";
 import { FaOpencart } from "react-icons/fa6";
 import { useEffect, useState } from "react";
+import { AiOutlineMenu } from "react-icons/ai";
+
+import MenuMobile from "../menuMobile/menuMobile";
 
 export default function Header() {
+
+  const [openMenu, setOpenMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setOpenMenu(prev => !prev);
+  }
+
+
   /* ESTADO DE SCROLL:
      - scrolled: Booleano que indica se o usuário rolou a página mais de 50px.
      - setScrolled: Função para atualizar esse estado.
@@ -33,8 +44,8 @@ export default function Header() {
     */
     <header
       className={`
-        fixed top-0 left-0 w-full z-50 hidden sm:block
-        transition-all duration-700
+        fixed top-0 left-0 w-full z-50  
+        transition-all duration-700 
         ${scrolled
           ? "items-center bg-[#EFF6FF] shadow-md backdrop-blur-md h-25 "
           : "bg-transparent "}
@@ -67,8 +78,8 @@ export default function Header() {
            - .map(): Gera os links automaticamente.
            - hover:text-[#5ca2b5]: Feedback visual ao passar o mouse.
         */}
-        <nav>
-          <ul className="flex gap-8">
+        <nav className="hidden sm:block">
+          <ul className="flex gap-8 ">
             {["Início", "Loja", "Sobre nós", "Contato"].map(item => (
               <li key={item}>
                 <a
@@ -91,13 +102,31 @@ export default function Header() {
         */}
         <FaOpencart
           size={40}
-          className={`cursor-pointer transition-colors ${
+          className={`cursor-pointer transition-colors hidden sm:block ${
             scrolled
               ? "text-blue-900 hover:text-[#5ca2b5]"
               : "text-white hover:text-[#5ca2b5]"
           }`}
         />
+        <AiOutlineMenu
+          size={35}
+          onClick={toggleMenu}
+          className={`cursor-pointer transition-colors ${
+            scrolled
+              ? "text-blue-900 hover:text-[#5ca2b5]"
+              : "text-white hover:text-[#5ca2b5]"
+          }`}
+          
+        />
+        
       </div>
+      
+      { openMenu && <MenuMobile onClose={toggleMenu} /> }
+   
     </header>
+
+    
+
+    
   );
 }

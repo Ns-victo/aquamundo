@@ -25,22 +25,23 @@ export default function Layout() {
             text-center w-full px-6
           "
         >
-          <h2 className="text-white text-3xl sm:text-5xl font-bold mb-4 italic leading-tight">
+          <h2 className="text-white text-3xl sm:text-5xl font-bold mb-4 italic leading-tight hidden sm:block">
             Traga o equilíbrio e a vida da água doce para seu espaço!
           </h2>
 
-          <h3 className="text-white text-lg sm:text-xl font-medium max-w-3xl mx-auto">
+          <h3 className="text-white text-lg sm:text-xl font-medium max-w-3xl mx-auto hidden sm:block">
             Especialistas em aquarismo de alta performance. Peixes de água doce,
             ecossistemas equilibrados e equipamentos de última geração.
           </h3>
 
-          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto">
+          <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto ">
             <button
               className="
                 cursor-pointer bg-transparent hover:bg-[#5ca2b5]
                 text-white font-bold py-3 px-6 rounded-full
                 transition-colors border border-white
                 text-xl sm:text-2xl w-full sm:w-60
+                hidden sm:block
               "
             >
               Explorar Loja
@@ -52,6 +53,7 @@ export default function Layout() {
                 text-white font-bold py-3 px-6 rounded-full
                 transition-colors border border-white
                 text-xl sm:text-2xl w-full sm:w-60
+                hidden sm:block
               "
             >
               Fale Conosco
