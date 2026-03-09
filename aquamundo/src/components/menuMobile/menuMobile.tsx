@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import { FaOpencart } from "react-icons/fa";
 import { RiHomeFill } from "react-icons/ri";
 import { MdOutlineStoreMallDirectory } from "react-icons/md";
@@ -32,26 +33,46 @@ export default function MenuMobile({ onClose }: MenuMobileProps) {
     >
       <div className="flex flex-col h-full">
         <li className="flex flex-col px-8 py-4 gap-10 mt-5 mb-5 ">
-          <a className="flex justify-between gap-5">
+          <Link
+            to="/"
+            onClick={onClose}
+            className="flex justify-between gap-5"
+          >
             <span className="text-2xl">Início</span>
             <RiHomeFill size={30} />
-          </a>
-          <a className="flex items-center justify-between gap-5">
+          </Link>
+          <Link
+            to="/loja"
+            onClick={onClose}
+            className="flex items-center justify-between gap-5"
+          >
             <span className="text-2xl">Loja</span>
             <MdOutlineStoreMallDirectory size={30} />
-          </a>
-          <a className="flex items-center justify-between    gap-5">
+          </Link>
+          <Link
+            to="/sobre"
+            onClick={onClose}
+            className="flex items-center justify-between gap-5"
+          >
             <span className="text-2xl">Sobre</span>
             <FaBuildingUser size={30} />
-          </a>
-          <a className="flex items-center justify-between    gap-5">
+          </Link>
+          <Link
+            to="/contato"
+            onClick={onClose}
+            className="flex items-center justify-between gap-5"
+          >
             <span className="text-2xl">Contato</span>
             <RiContactsFill size={30} />
-          </a>
-          <a className="flex items-center justify-between gap-5">
+          </Link>
+          <Link
+            to="/carrinho"
+            onClick={onClose}
+            className="flex items-center justify-between gap-5"
+          >
             <span className="text-2xl">Carrinho</span>
             <FaOpencart size={30} />
-          </a>
+          </Link>
         </li>
       </div>
     </div>
