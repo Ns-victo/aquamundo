@@ -1,10 +1,10 @@
 import CardFiltros from "../../components/cardfiltros/cardfiltros";
 import CampoBuscar from "../../components/campobuscar/campobuscar";
-import DestaquesSemana from "../../components/destaques/destaquesSemana";
+import CardLoja from "../../components/cardLoja/cardLoja";
 
 export default function Loja() {
   return (
-    <div className="w-full flex flex-col items-center  justify-start">
+    <div className="w-full flex flex-col items-center justify-start">
 
       {/* Seção azul com texto */}
       <section className="w-full min-h-[350px] bg-[#0B3C5D] flex items-center justify-center p-10">
@@ -14,15 +14,21 @@ export default function Loja() {
           </h4>
         </div>
       </section>
-
-        <div className="w-full max-w-6xl  flex flex-row mt-10 gap-5">
+      <div className="max-w-6xl flex  gap-5 mt-10">
+        <div  >
           <CardFiltros />
+
+        </div >
+        <div  >
           <CampoBuscar />
-        </div>
-        <div className="w-full max-w-6xl  flex flex-row mt-10 gap-5">
-          <DestaquesSemana />
-        </div>
-   
+          
+          <CardLoja />
+        </div >
+
+      </div>
+
+
+
 
     </div>
   );

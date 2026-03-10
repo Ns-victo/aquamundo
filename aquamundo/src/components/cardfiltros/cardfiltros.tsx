@@ -12,6 +12,9 @@ export default function CardFiltros() {
             </div>
             <div className="flex flex-col gap-4  w-full">
                 <button className=" w-full text-start text-gray-600 py-2 px-4 rounded hover:bg-blue-200 transition cursor-pointer hover:text-blue-800">
+                    Todos
+                </button>
+                <button className=" w-full text-start text-gray-600 py-2 px-4 rounded hover:bg-blue-200 transition cursor-pointer hover:text-blue-800">
                     Peixes
                 </button>
                 <button className=" w-full text-start text-gray-600 py-2 px-4 rounded hover:bg-blue-200 transition cursor-pointer hover:text-blue-800">
