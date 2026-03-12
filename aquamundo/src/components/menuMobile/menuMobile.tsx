@@ -50,7 +50,7 @@ export default function MenuMobile({ onClose }: MenuMobileProps) {
             <MdOutlineStoreMallDirectory size={30} />
           </Link>
           <Link
-            to="/sobre"
+            to="/sobrenos"
             onClick={onClose}
             className="flex items-center justify-between gap-5"
           >

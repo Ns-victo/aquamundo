@@ -80,7 +80,7 @@ export default function Header() {
             size={42}
           />
           <h1
-            className={`text-2xl font-bold transition-colors  ${
+            className={`font-playfair text-2xl font-bold transition-colors  ${
               scrolled ? "text-blue-900" : "text-white"
             }`}
           >
@@ -103,7 +103,7 @@ export default function Header() {
             {[
               { label: "Início", to: "/" },
               { label: "Loja", to: "/loja" },
-              { label: "Sobre nós", to: "/sobre" },
+              { label: "Sobre nós", to: "/sobrenos" },
               { label: "Contato", to: "/contato" },
             ].map(nav => (
               
@@ -114,7 +114,7 @@ export default function Header() {
               <li key={nav.label}>
                 <Link
                   to={nav.to}
-                  className={`text-2xl transition-colors ${
+                  className={`font-lato text-2xl transition-colors ${
                     scrolled
                       ? "text-blue-900 hover:text-[#5ca2b5]"
                       : "text-white hover:text-[#5ca2b5]"

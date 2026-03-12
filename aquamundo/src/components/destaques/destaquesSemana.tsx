@@ -5,6 +5,7 @@ import decoracao from "../../assets/imagens/decoracao.jpg";
 import { FaOpencart } from "react-icons/fa6";
 
 export default function DestaquesSemana() {
+
   const produtos = [
     {
       nome: "Beta Splendens",
@@ -33,148 +34,172 @@ export default function DestaquesSemana() {
   ];
 
   return (
+
     /* SEÇÃO DE DESTAQUES:
        - bg-[#F5F9F8]: Fundo em tom esverdeado muito leve (menta).
        - py-16: Espaçamento vertical de 64px.
-       - overflow-x-hidden: Garante que nada saia da largura da tela, evitando barra de rolagem horizontal indesejada no corpo do site.
+       - overflow-x-hidden: Evita rolagem horizontal indesejada.
     */
     <section className="bg-[#F5F9F8] py-16 overflow-x-hidden">
-      
-      {/* CONTAINER ALINHADOR:
-         - max-w-[1600px]: Largura máxima expandida para comportar 4 colunas confortavelmente.
-         - mx-auto: Centralização horizontal.
-         - px-4: Margem de segurança nas laterais no mobile.
+
+      {/* CONTAINER PRINCIPAL
+         - max-w-[1600px]: largura máxima da seção
+         - mx-auto: centraliza na tela
+         - px-4: espaçamento lateral para mobile
       */}
-      <div className="max-w-[1600px] mx-auto px-4 ">
-        
+      <div className="mx-auto max-w-7xl px-4 sm:px-6">
+
         {/* ================= CABEÇALHO ================= */}
-        {/* Espaçamento e Tipografia:
-           - mb-10: Afasta o título dos cards (40px).
-           - text-3xl a 5xl: Título responsivo que cresce conforme o monitor.
-           - text-gray-600: Subtítulo em cinza para suavizar a leitura.
-        */}
         <div className="mb-10">
+
+          {/* TÍTULO */}
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-2">
             Destaques da Semana
           </h1>
+
+          {/* SUBTÍTULO */}
           <p className="text-gray-600 text-base sm:text-lg">
             Confira os produtos mais populares da semana
           </p>
+
         </div>
 
+
         {/* ================= GRADE DE CARDS ================= */}
-        {/* Lógica de Layout Duplo:
-           - Mobile: flex + overflow-x-auto (permite deslizar lateralmente).
-           - Desktop: lg:grid + lg:grid-cols-4 (vira uma grade de 4 colunas fixa).
-           - lg:overflow-visible: Remove o scroll lateral em telas grandes.
+
+        {/* Layout Responsivo
+           Mobile → scroll horizontal
+           Desktop → grid com 4 colunas
         */}
-        <div className="flex gap-6 overflow-x-auto pb-4 lg:grid lg:grid-cols-4 lg:gap-8 lg:overflow-visible">
+        <div className="grid auto-cols-[280px] grid-flow-col gap-6 overflow-x-auto pb-4 sm:grid-flow-row sm:grid-cols-2 sm:auto-rows-fr sm:overflow-visible xl:grid-cols-4 xl:gap-8">
+
           {produtos.map((item, index) => (
-            
-            /* ESTRUTURA DO CARD:
-               - group: Permite que elementos internos (como o botão) reajam ao mouse.
-               - w-[380px] sm:w-[300px]: Controla a largura para que o scroll mobile seja visível.
-               - lg:w-auto: No desktop, o card preenche o espaço da coluna da grade.
-               - hover:shadow-xl: Efeito de profundidade ao interagir.
+
+            /* CARD DO PRODUTO
+               - group: permite ativar efeitos hover nos elementos internos
+               - hover:shadow-xl: aumenta a sombra ao passar o mouse
             */
             <div
               key={index}
-              className="group flex-shrink-0
-                        w-[380px] sm:w-[300px] lg:w-auto
-                        bg-white rounded-2xl shadow-md flex flex-col
-                        hover:shadow-xl transition-shadow duration-300
-                        cursor-pointer"
+              className="group h-full min-h-[540px]
+              w-full min-w-0
+              bg-white rounded-2xl shadow-md flex flex-col
+              hover:shadow-xl transition-all duration-300
+              cursor-pointer"
             >
-              {/* ÁREA DA IMAGEM:
-                 - relative: Necessário para posicionar o botão flutuante sobre a imagem.
-                 - h-72: Altura fixa para manter todos os cards alinhados.
-                 - object-cover: Corta a imagem sem distorcê-la.
-              */}
-              <div className="relative">
+
+              {/* ================= IMAGEM DO PRODUTO ================= */}
+
+              {/* relative: necessário para posicionar o botão sobre a imagem */}
+              <div className="relative overflow-hidden rounded-t-2xl">
+
+                {/* IMAGEM
+                   object-cover: evita distorção
+                   group-hover:scale-105: pequeno zoom ao passar o mouse
+                */}
                 <img
                   src={item.img}
                   alt={item.nome}
-                  className="h-72 w-full object-cover rounded-t-2xl"
+                  className="h-72 w-full object-cover
+                  transition-transform duration-300
+                  group-hover:scale-105"
                 />
 
-                {/* BOTÃO FLUTUANTE (DESKTOP):
-                   - bg-gradient-to-t: Cria um sombreamento suave atrás do botão.
-                   - opacity-0 + translate-y-full: O botão começa invisível e "escondido" abaixo da imagem.
-                   - group-hover: Revela o botão e o faz "subir" para dentro da imagem quando o mouse entra.
-                */}
+                {/* ================= BOTÃO FLUTUANTE ================= */}
+
+                {/* Gradiente + animação de subida */}
                 <div
                   className="
-                    absolute inset-0 flex items-end justify-center
-                    bg-gradient-to-t from-black/30 to-transparent
-                    rounded-t-2xl
-                    opacity-0 transform translate-y-full
-                    transition-all duration-500 ease-out
-                    group-hover:opacity-100 group-hover:translate-y-0
-                    p-4
+                  absolute inset-0 flex items-end justify-center
+                  bg-gradient-to-t from-black/40 to-transparent
+                  opacity-0 translate-y-6
+                  transition-all duration-300
+                  group-hover:opacity-100
+                  group-hover:translate-y-0
+                  p-4
                   "
                 >
-                  {/* Botão de Adicionar (Desktop):
-                     - active:scale-95: Efeito de "clique real" que encolhe o botão ao ser pressionado.
-                  */}
+
+                  {/* BOTÃO DE ADICIONAR AO CARRINHO */}
                   <button
                     className="
-                      w-full py-3 rounded-xl
-                      bg-white text-blue-600 border border-blue-600
-                      flex items-center justify-center gap-2
-                      text-lg sm:text-xl font-semibold
-                      shadow-md
-                      hover:bg-blue-50
-                      active:scale-95
+                    w-full py-3 rounded-xl
+                    bg-white text-blue-600 border border-blue-600
+                    flex items-center justify-center gap-2
+                    text-lg font-semibold
+                    shadow-md
+                    hover:bg-blue-50
+                    active:scale-95
+                    transition
                     "
                   >
+
                     <FaOpencart size={20} />
+
                     Adicionar ao carrinho
+
                   </button>
+
                 </div>
+
               </div>
 
-              {/* ÁREA DE TEXTO:
-                 - p-6: Padding interno generoso.
-                 - flex-1: Faz com que a descrição ocupe o espaço disponível, alinhando os preços na base.
-              */}
-              <div className="p-6 flex flex-col flex-1">
-                {/* Nome do Produto: Cor Azul Oceano (#0284C7) */}
-                <h3 className="text-2xl sm:text-3xl font-semibold text-[#0284C7]">
+
+              {/* ================= TEXTO DO PRODUTO ================= */}
+
+              <div className="flex flex-1 flex-col p-6">
+
+                {/* NOME DO PRODUTO */}
+                <h3 className="text-2xl font-semibold text-[#0284C7]">
                   {item.nome}
                 </h3>
 
-                <p className="text-lg sm:text-xl text-gray-600 mt-2 flex-1">
+                {/* DESCRIÇÃO */}
+                <p className="mt-2 flex-1 text-gray-600">
                   {item.desc}
                 </p>
 
-                {/* Rodapé do Card:
-                   - justify-between: Separa o preço do link de detalhes.
-                   - text-[#38BDF8]: Azul claro vibrante para o preço.
-                */}
+                {/* RODAPÉ DO CARD */}
                 <div className="mt-4 flex items-center justify-between">
+
+                  {/* PREÇO */}
                   <span className="text-2xl font-bold text-[#38BDF8]">
                     {item.preco}
                   </span>
-                  <span className="text-lg text-gray-500 hover:text-blue-600 cursor-pointer transition-colors">
+
+                  {/* LINK DETALHES */}
+                  <span className="text-gray-500 hover:text-blue-600 cursor-pointer transition-colors">
                     Ver detalhes
                   </span>
+
                 </div>
+
               </div>
 
-              {/* BARRA DE AÇÃO MOBILE:
-                 - lg:hidden: Esta barra azul só aparece em celulares/tablets.
-                 - bg-[#0284C7]: Fundo azul sólido para facilitar o toque.
-                 - h-20: Altura maior para servir como uma zona de clique confortável para o polegar.
-              */}
-              <div className="bg-[#0284C7] w-full h-20 flex flex-row items-center justify-center 
-                              gap-10 rounded-b-xl lg:hidden">
-                <button className="text-white text-xl font-medium">Adicionar ao Carrinho</button>
-                <FaOpencart className="text-white" size={25} />
+
+              {/* ================= BOTÃO MOBILE ================= */}
+
+              {/* Aparece apenas em telas pequenas */}
+              <div className="mt-auto flex h-20 w-full items-center justify-center gap-4 rounded-b-2xl bg-[#0284C7] lg:hidden">
+
+                <button className="text-white font-medium">
+                  Adicionar ao Carrinho
+                </button>
+
+                <FaOpencart className="text-white" size={22} />
+
               </div>
+
             </div>
+
           ))}
+
         </div>
+
       </div>
+
     </section>
+
   );
+
 }

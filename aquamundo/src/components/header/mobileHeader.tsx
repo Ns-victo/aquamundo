@@ -35,7 +35,7 @@ export default function MobileHeader() {
             size={42}
           />
           <h1
-            className={`text-3xl font-bold transition-colors ${
+            className={`font-playfair text-3xl font-bold transition-colors ${
               scrolled ? "text-blue-900" : "text-white"
             }`}
           >
@@ -48,7 +48,7 @@ export default function MobileHeader() {
             {["Início", "Loja", "Sobre nós", "Contato"].map(item => (
               <li key={item}>
                 <a
-                  className={`text-2xl cursor-pointer transition-colors ${
+                  className={`font-lato text-2xl cursor-pointer transition-colors ${
                     scrolled
                       ? "text-blue-900 hover:text-[#5ca2b5]"
                       : "text-white hover:text-[#5ca2b5]"

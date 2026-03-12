@@ -34,13 +34,13 @@ export default function Footer() {
         <div className="flex flex-col gap-4 md:max-w-md">
           <div className="flex items-center gap-3">
             <LuFish className="text-[#5ca2b5]" size={38} />
-            <h1 className="text-3xl md:text-4xl font-bold text-[#5ca2b5]">
+            <h1 className="font-playfair text-3xl md:text-4xl font-bold text-[#5ca2b5]">
               Aquamundo
             </h1>
           </div>
 
           {/* leading-relaxed: Aumenta o espaço entre as linhas do texto, facilitando a leitura da descrição. */}
-          <p className="text-sm md:text-lg text-gray-200 leading-relaxed">
+          <p className="font-lato text-sm md:text-lg text-gray-200 leading-relaxed">
             Sua loja completa de aquarismo. Trazendo a beleza dos oceanos e
             rios para dentro da sua casa com responsabilidade e paixão.
           </p>
@@ -51,11 +51,11 @@ export default function Footer() {
            - transition-colors: Suaviza a troca de cor ao passar o mouse sobre os links.
         */}
         <div className="flex flex-col gap-4">
-          <h2 className="text-xl md:text-2xl font-bold text-[#5ca2b5]">
+          <h2 className="font-playfair text-xl md:text-2xl font-bold text-[#5ca2b5]">
             Navegação
           </h2>
 
-          <ul className="flex flex-col gap-3 text-sm md:text-lg">
+          <ul className="font-lato flex flex-col gap-3 text-sm md:text-lg">
             {/* MÉTODO .MAP(): Gera a lista de navegação dinamicamente para facilitar a manutenção. */}
             {["Loja", "Sobre nós", "Contato", "Carrinho"].map((item) => (
               <li key={item}>
@@ -72,7 +72,7 @@ export default function Footer() {
            - break-all: Garante que e-mails longos não quebrem o layout em telas pequenas.
         */}
         <div className="flex flex-col gap-4">
-          <h2 className="text-xl md:text-2xl font-bold text-[#5ca2b5]">
+          <h2 className="font-playfair text-xl md:text-2xl font-bold text-[#5ca2b5]">
             Contatos
           </h2>
 
@@ -111,7 +111,7 @@ export default function Footer() {
          - text-gray-400: Cor cinza mais escura para não distrair da navegação.
          - py-4: Espaçamento no topo e base da faixa final.
       */}
-      <p className="text-center text-gray-400 text-xs md:text-base py-4">
+      <p className="font-lato text-center text-gray-400 text-xs md:text-base py-4">
         © 2024 AquaMundo. Todos os direitos reservados.
       </p>
 

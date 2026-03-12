@@ -25,11 +25,11 @@ export default function Layout() {
             text-center w-full px-6
           "
         >
-          <h2 className="text-white text-3xl sm:text-5xl font-bold mb-4 italic leading-tight hidden sm:block">
+          <h2 className="text-white text-3xl sm:text-5xl font-bold mb-4 italic leading-tight hidden sm:block font-playfair">
             Traga o equilíbrio e a vida da água doce para seu espaço!
           </h2>
 
-          <h3 className="text-white text-lg sm:text-xl font-medium max-w-3xl mx-auto hidden sm:block">
+          <h3 className="text-white text-lg sm:text-xl font-medium max-w-3xl mx-auto hidden sm:block font-lato">
             Especialistas em aquarismo de alta performance. Peixes de água doce,
             ecossistemas equilibrados e equipamentos de última geração.
           </h3>
@@ -37,7 +37,7 @@ export default function Layout() {
           <div className="mt-8 flex flex-col sm:flex-row justify-center gap-4 w-full sm:w-auto ">
             <button
               className="
-                cursor-pointer bg-transparent hover:bg-[#5ca2b5]
+                cursor-pointer bg-transparent font-lato hover:bg-[#5ca2b5]
                 text-white font-bold py-3 px-6 rounded-full
                 transition-colors border border-white
                 text-xl sm:text-2xl w-full sm:w-60
@@ -49,7 +49,7 @@ export default function Layout() {
 
             <button
               className="
-                cursor-pointer bg-transparent hover:bg-[#5ca2b5]
+                cursor-pointer bg-transparent font-lato hover:bg-[#5ca2b5]
                 text-white font-bold py-3 px-6 rounded-full
                 transition-colors border border-white
                 text-xl sm:text-2xl w-full sm:w-60

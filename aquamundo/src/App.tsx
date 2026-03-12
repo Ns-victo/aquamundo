@@ -1,10 +1,10 @@
-import { Routes, Route } from "react-router-dom"
+import { Navigate, Route, Routes } from "react-router-dom";
 import Header from "./components/header/header";
 
 import Home from "./pages/home/home";
 import Loja from "./pages/loja/loja";
-
-
+import Contato from "./pages/contato/contato";
+import Sobre from "./pages/sobre/sobre";
 
 function App() {
   return (
@@ -14,8 +14,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/loja" element={<Loja />} />
-     
-  
+        <Route path="/contato" element={<Contato />} />
+        <Route path="/sobrenos" element={<Sobre />} />
+        <Route path="/sobre" element={<Navigate to="/sobrenos" replace />} />
       </Routes>
     </>
   );
