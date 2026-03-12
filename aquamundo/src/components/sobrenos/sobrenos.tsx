@@ -1,3 +1,5 @@
+import Missao from "../../components/missao/missao";
+
 
 
 export default function SobreNos() {
@@ -12,6 +14,7 @@ export default function SobreNos() {
                 </div>
                 
             </section>
+            <Missao />
 
         </div>
         
