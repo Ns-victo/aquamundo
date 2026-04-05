@@ -133,14 +133,16 @@ export default function Header() {
            - hover:text: Aplica feedback visual ao passar o mouse.
            - transition-colors: Suaviza a mudança de cores.
         */}
-        <FaOpencart
-          size={40}
-          className={`cursor-pointer transition-colors hidden sm:block ${
-            scrolled
-              ? "text-blue-900 hover:text-[#5ca2b5]"
-              : "text-white hover:text-[#5ca2b5]"
-          }`}
-        />
+        <Link to="/carrinho" className="hidden sm:block" aria-label="Abrir carrinho">
+          <FaOpencart
+            size={40}
+            className={`cursor-pointer transition-colors ${
+              scrolled
+                ? "text-blue-900 hover:text-[#5ca2b5]"
+                : "text-white hover:text-[#5ca2b5]"
+            }`}
+          />
+        </Link>
 
         {/* ÍCONE DE MENU MOBILE (HAMBÚRGUER):
            - AiOutlineMenu: Ícone utilizado para abrir o menu em telas pequenas.

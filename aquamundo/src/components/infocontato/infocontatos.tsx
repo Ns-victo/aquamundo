@@ -25,33 +25,55 @@ const contatos = [
 
 export default function InfoContato() {
   return (
-    <section className="w-full flex flex-col items-center gap-8 p-10">
-      <div className="text-center max-w-xl">
-        {/* Titulo */}
-        <h2 className="text-2xl font-bold">Informações do Contato</h2>
-        <p className="text-gray-600 mt-2">
+    /* COLUNA DE INFORMAÇÕES DE CONTATO:
+       - flex flex-col: Organiza cabecalho e lista de canais verticalmente.
+       - items-center: Mantem o bloco centralizado dentro da coluna.
+       - espacamento responsivo: Ajusta respiro entre mobile e desktop.
+    */
+    <section className="w-full flex flex-col items-center gap-6 sm:gap-8 px-0 py-2 sm:p-4 lg:p-6">
+
+      {/* CABEÇALHO EXPLICATIVO:
+          - text-center: Facilita leitura do titulo e subtitulo.
+          - max-w-xl: Evita linhas longas demais em telas maiores.
+      */}
+      <div className="text-center max-w-xl px-2">
+        {/* TÍTULO E TEXTO DE APOIO:
+            - Escala tipografica responsiva para manter hierarquia clara.
+            - leading-relaxed melhora a leitura do texto introdutorio.
+        */}
+        <h2 className="text-2xl sm:text-3xl font-bold">Informações do Contato</h2>
+        <p className="text-sm sm:text-base text-gray-600 mt-2 leading-relaxed">
           Prefere conversar diretamente? Use um dos canais abaixo ou nos visite em nossa loja física.
         </p>
       </div>
 
-      {/* Cards */}
+      {/* LISTA DE CANAIS:
+          - max-w-xl: Mantem os cards compactos e legiveis.
+          - gap-6: Cria separacao clara entre cada metodo de contato.
+      */}
       <div className="flex flex-col gap-6 w-full max-w-xl">
         {contatos.map((item, index) => {
           const Icon = item.icon;
 
           return (
+
+            /* CARD DE CONTATO:
+               - hover:scale-105: Fornece feedback visual leve ao usuario.
+               - p responsivo: Garante conforto visual em telas menores.
+               - items-start: Mantem icone e textos alinhados pelo topo.
+            */
             <div
               key={index}
-              className="bg-white border border-gray-200 rounded-xl p-6 flex gap-4 items-start shadow-sm hover:scale-105 transition-transform duration-300 cursor-pointer"
+              className="bg-white border border-gray-200 rounded-xl p-4 sm:p-6 flex gap-4 items-start shadow-sm hover:scale-105 transition-transform duration-300 cursor-pointer"
             >
-              <div className="bg-blue-100 p-3 rounded-full">
-                <Icon className="text-blue-500 text-xl" />
+              <div className="bg-blue-100 p-3 rounded-full shrink-0">
+                <Icon className="text-blue-500 text-xl sm:text-2xl" />
               </div>
 
-              <div className="gap-3">
-                <h3 className="text-xl font-semibold text-gray-600">{item.titulo}</h3>
+              <div className="min-w-0">
+                <h3 className="text-lg sm:text-xl font-semibold text-gray-600">{item.titulo}</h3>
                 <p className="text-sm text-gray-600">{item.linha1}</p>
-                <span className="text-sm text-gray-400">{item.linha2}</span>
+                <span className="text-sm text-gray-400 break-words">{item.linha2}</span>
               </div>
             </div>
           );

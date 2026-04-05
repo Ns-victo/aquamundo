@@ -1,50 +1,23 @@
-import peixe_header from "../../assets/imagens/peixe_header.jpeg";
-import racao from "../../assets/imagens/racao.jpg";
-import bomba_submersa from "../../assets/imagens/bomba_submersa.jpg";
-import decoracao from "../../assets/imagens/decoracao.jpg";
 import { FaOpencart } from "react-icons/fa6";
+import { useCarrinho } from "../../context/carrinhoContext";
+import { produtos } from "../../data/produtos";
 
 export default function DestaquesSemana() {
-  const produtos = [
-    {
-      nome: "Beta Splendens",
-      desc: "Peixes Bettas coloridos, ideais para iniciantes, fáceis de cuidar e muito resistentes",
-      preco: "R$ 29,90",
-      img: peixe_header,
-    },
-    {
-      nome: "Ração Premium",
-      desc: "Nutrição balanceada para peixes ornamentais, mantendo cores vibrantes e saúde ideal",
-      preco: "R$ 39,90",
-      img: racao,
-    },
-    {
-      nome: "Bomba Submersa",
-      desc: "Circulação eficiente para aquários de diferentes tamanhos, garantindo oxigenação ideal",
-      preco: "R$ 79,90",
-      img: bomba_submersa,
-    },
-    {
-      nome: "Decoração Natural",
-      desc: "Deixe seu aquário mais bonito e natural com pedras, plantas e elementos decorativos",
-      preco: "R$ 49,90",
-      img: decoracao,
-    },
-  ];
+  const { adicionarItem } = useCarrinho();
 
   return (
-    <section className="py-16 overflow-x-hidden">
-      <div className="mx-auto px-4">
+    <section className="overflow-x-hidden py-4 sm:py-6 lg:py-8">
+      <div className="mx-auto px-0">
 
         {/* GRID DOS CARDS */}
-        <div className="flex flex-wrap gap-8 justify-center lg:grid lg:grid-cols-2">
+        <div className="grid auto-rows-fr grid-cols-1 gap-6 sm:grid-cols-2 xl:gap-8">
 
           {produtos.map((item, index) => (
 
             <div
               key={index}
-              className="group w-[300px] bg-white rounded-2xl shadow-md flex flex-col
-              hover:shadow-xl transition-all duration-300 cursor-pointer"
+              className="group flex h-full min-h-[540px] w-[300px] min-w-0 flex-col overflow-hidden rounded-2xl bg-white shadow-md 
+              transition-all duration-300 hover:shadow-xl cursor-pointer"
             >
 
               {/* IMAGEM */}
@@ -58,28 +31,15 @@ export default function DestaquesSemana() {
 
                 {/* BOTÃO HOVER */}
                 <div
-                  className="
-                  absolute inset-0 flex items-end justify-center
-                  bg-gradient-to-t from-black/40 to-transparent
-                  opacity-0 translate-y-6
-                  transition-all duration-300
-                  group-hover:opacity-100
-                  group-hover:translate-y-0
-                  p-4
-                "
+                  className="absolute inset-0 hidden items-end justify-center bg-gradient-to-t from-black/40 to-transparent p-4 
+                  opacity-0 translate-y-6 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100 lg:flex"
                 >
 
                   <button
-                    className="
-                    w-full py-3 rounded-xl
-                    bg-white text-blue-600 border border-blue-600
-                    flex items-center justify-center gap-2
-                    text-lg font-semibold
-                    shadow-md
-                    hover:bg-blue-50
-                    active:scale-95
-                    transition
-                  "
+                    type="button"
+                    onClick={() => adicionarItem(item)}
+                    className="flex w-full items-center justify-center gap-2 rounded-xl border border-blue-600 bg-white py-3 text-lg 
+                    font-semibold text-blue-600 shadow-md transition hover:bg-blue-50 active:scale-95 cursor-pointer"
                   >
                     <FaOpencart size={20} />
                     Adicionar ao carrinho
@@ -90,23 +50,26 @@ export default function DestaquesSemana() {
               </div>
 
               {/* TEXTO */}
-              <div className="p-6 flex flex-col flex-1">
+              <div className="flex flex-1 flex-col p-6">
 
-                <h3 className="text-xl font-semibold text-[#0284C7]">
+                <h3 className="text-2xl font-semibold text-[#0284C7]">
                   {item.nome}
                 </h3>
 
-                <p className="text-gray-600 mt-2 flex-1">
+                <p className="mt-2 flex-1 text-gray-600">
                   {item.desc}
                 </p>
 
                 <div className="mt-4 flex items-center justify-between">
 
                   <span className="text-2xl font-bold text-[#38BDF8]">
-                    {item.preco}
+                    {item.preco.toLocaleString("pt-BR", {
+                      style: "currency",
+                      currency: "BRL",
+                    })}
                   </span>
 
-                  <span className="text-gray-500 hover:text-blue-600 cursor-pointer transition-colors">
+                  <span className="cursor-pointer text-gray-500 transition-colors hover:text-blue-600">
                     Ver detalhes
                   </span>
 
@@ -115,13 +78,17 @@ export default function DestaquesSemana() {
               </div>
 
               {/* BOTÃO MOBILE */}
-              <div className="bg-[#0284C7] w-full h-16 flex items-center justify-center gap-3 rounded-b-2xl lg:hidden">
+              <div className="mt-auto flex h-20 w-full items-center justify-center gap-4 rounded-b-2xl bg-[#0284C7] lg:hidden">
 
-                <button className="text-white font-medium">
+                <button
+                  type="button"
+                  onClick={() => adicionarItem(item)}
+                  className="font-medium text-white cursor-pointer"
+                >
                   Adicionar ao Carrinho
                 </button>
 
-                <FaOpencart className="text-white" size={20} />
+                <FaOpencart className="text-white" size={22} />
 
               </div>
 
